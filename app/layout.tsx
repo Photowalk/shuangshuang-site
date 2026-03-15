@@ -1,15 +1,22 @@
 import type { Metadata } from "next";
-import { Outfit, Sora } from "next/font/google";
+import { Noto_Sans_SC, Noto_Serif_SC, Outfit } from "next/font/google";
 import "./globals.css";
 
-const bodyFont = Outfit({
-  variable: "--font-body",
+const latinFont = Outfit({
+  variable: "--font-latin",
   subsets: ["latin"],
 });
 
-const displayFont = Sora({
-  variable: "--font-display",
+const bodyFontCn = Noto_Sans_SC({
+  variable: "--font-body-cn",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
+
+const displayFontCn = Noto_Serif_SC({
+  variable: "--font-display-cn",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,7 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="zh-CN">
-      <body className={`${bodyFont.variable} ${displayFont.variable}`}>
+      <body
+        className={`${latinFont.variable} ${bodyFontCn.variable} ${displayFontCn.variable}`}
+      >
         {children}
       </body>
     </html>
