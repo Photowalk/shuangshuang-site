@@ -29,6 +29,7 @@ export function DeviceFrame({
           src={src}
           alt={alt}
           fill
+          unoptimized
           priority={priority}
           sizes="(max-width: 768px) 72vw, 28vw"
           className="deviceImage"

@@ -109,6 +109,7 @@ export default function Home() {
                 src="/site-assets/logo-current.png"
                 alt="ShuangShuang logo"
                 fill
+                unoptimized
                 sizes="56px"
                 priority
               />
@@ -171,6 +172,7 @@ export default function Home() {
               src="/site-assets/emulator_wotd_listen2.png"
               alt="Word of the Day detail"
               fill
+              unoptimized
               sizes="(max-width: 768px) 100vw, 33vw"
               className="storyPanelImage"
             />
@@ -180,6 +182,7 @@ export default function Home() {
               src="/site-assets/pron_check.png"
               alt="Pronunciation result"
               fill
+              unoptimized
               sizes="(max-width: 768px) 100vw, 33vw"
               className="storyPanelImage storyPanelImageCenter"
             />
@@ -189,6 +192,7 @@ export default function Home() {
               src="/site-assets/emu_query_now.png"
               alt="Listening interface"
               fill
+              unoptimized
               sizes="(max-width: 768px) 100vw, 33vw"
               className="storyPanelImage"
             />
