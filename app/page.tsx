@@ -191,9 +191,9 @@ export default function Home() {
         </div>
         <div className="storyCopy">
           <p className="storyOverline">A calm learning rhythm</p>
-          <h2 className="storyTitle">当热爱变成习惯，时间会把细小积累推成质变。</h2>
+          <h2 className="storyTitle">当热爱沉淀成习惯，时间会把微小积累酿成质变。</h2>
           <p className="storyLead">
-            When curiosity becomes a habit, time turns small, repeated actions into real change.
+            When curiosity settles into habit, time turns tiny repetitions into real change.
           </p>
         </div>
         <div className="theoryBlock">

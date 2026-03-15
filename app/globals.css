@@ -160,10 +160,11 @@ a {
   font-family: var(--font-display-cn), var(--font-latin), "PingFang SC", "Microsoft YaHei", sans-serif;
   letter-spacing: -0.03em;
   line-height: 1.08;
+  font-weight: 600;
 }
 
 .heroTitle {
-  font-size: clamp(2.45rem, 4.8vw, 4.4rem);
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
   max-width: 12ch;
   line-height: 1.12;
 }
@@ -400,9 +401,10 @@ a {
 .storyTitle {
   margin-top: 12px;
   font-family: var(--font-display-cn), var(--font-latin), "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: clamp(1.45rem, 2vw, 2.3rem);
+  font-size: clamp(1.2rem, 1.6vw, 1.85rem);
   letter-spacing: -0.03em;
   line-height: 1.22;
+  font-weight: 600;
 }
 
 .storyLead {
@@ -435,9 +437,10 @@ a {
 .theoryTitle {
   margin-top: 12px;
   font-family: var(--font-display-cn), var(--font-latin), "PingFang SC", "Microsoft YaHei", sans-serif;
-  font-size: clamp(1.35rem, 1.7vw, 1.9rem);
+  font-size: clamp(1.12rem, 1.35vw, 1.55rem);
   line-height: 1.28;
   letter-spacing: -0.02em;
+  font-weight: 600;
 }
 
 .theoryBodyCn,
@@ -482,7 +485,7 @@ a {
 }
 
 .sectionTitle {
-  font-size: clamp(1.8rem, 2.9vw, 3rem);
+  font-size: clamp(1.55rem, 2.25vw, 2.45rem);
   max-width: 10ch;
   line-height: 1.14;
 }
@@ -554,7 +557,7 @@ a {
 .footerTitle {
   max-width: 14ch;
   margin: 20px auto 0;
-  font-size: clamp(1.9rem, 3vw, 3.2rem);
+  font-size: clamp(1.6rem, 2.35vw, 2.65rem);
   line-height: 1.14;
 }
 
