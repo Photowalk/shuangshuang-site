@@ -5,21 +5,21 @@ import { DeviceFrame } from "@/components/site/DeviceFrame";
 
 const heroCards = [
   {
-    src: "/site-assets/query_home_valid.png",
-    alt: "ShuangShuang query page",
-    labelCn: "查询首页",
-    labelEn: "Query home",
+    src: "/site-assets/daily_list_clean.png",
+    alt: "ShuangShuang daily word list page",
+    labelCn: "每日入口",
+    labelEn: "Daily start",
     className: "heroCard heroCardLeft",
   },
   {
-    src: "/site-assets/pron_valid.png",
+    src: "/site-assets/lookup_result_clean.png",
     alt: "ShuangShuang pronunciation result page",
     labelCn: "点击发音",
     labelEn: "Tap to speak",
     className: "heroCard heroCardCenter",
   },
   {
-    src: "/site-assets/wotd_listen_valid.png",
+    src: "/site-assets/listening_detail_clean.png",
     alt: "ShuangShuang WOTD listening page",
     labelCn: "每日一次",
     labelEn: "Daily ritual",
@@ -37,7 +37,7 @@ const featureCards = [
       "今天学什么，不需要先想。打开应用，就已经有一个入口在等你。",
       "点进讲解，继续往下听；从单词进入听力，而不是从功能菜单进入功能菜单。",
     ],
-    image: "/site-assets/query_home_valid.png",
+    image: "/site-assets/daily_list_clean.png",
     labelCn: "每日一次",
     labelEn: "A natural start",
     tone: "teal",
@@ -51,7 +51,7 @@ const featureCards = [
       "你不用切到别的页面，也不用再找一个播放入口。",
       "音标、释义、发音落在同一块信息里，理解会更连贯。",
     ],
-    image: "/site-assets/pron_valid.png",
+    image: "/site-assets/lookup_result_clean.png",
     labelCn: "结果发音",
     labelEn: "UK / US playback",
     tone: "slate",
@@ -65,7 +65,7 @@ const featureCards = [
       "字幕不是摆设。它可以高亮、跳转、继续引导回查词。",
       "从一句话听不懂，到一个词查明白，中间不需要重新组织你的注意力。",
     ],
-    image: "/site-assets/wotd_listen_valid.png",
+    image: "/site-assets/listening_detail_clean.png",
     labelCn: "听力联动",
     labelEn: "Context-led listening",
     tone: "mist",
@@ -79,7 +79,7 @@ const featureCards = [
       "它不会不停打断你，不会到处堆按钮，也不会把重要操作做得很吵。",
       "产品的存在感降低以后，真正留下来的才是每天都愿意继续的节奏。",
     ],
-    image: "/site-assets/about_valid.png",
+    image: "/site-assets/about_release_clean.png",
     labelCn: "平静系统",
     labelEn: "Calm by default",
     tone: "cream",
@@ -160,7 +160,7 @@ export default function Home() {
           <div className="storyMosaic">
           <div className="storyPanel storyPanelLeft">
             <Image
-              src="/site-assets/wotd_listen_valid.png"
+              src="/site-assets/daily_list_clean.png"
               alt="Word of the Day detail"
               fill
               unoptimized
@@ -170,7 +170,7 @@ export default function Home() {
           </div>
           <div className="storyPanel storyPanelCenter">
             <Image
-              src="/site-assets/pron_valid.png"
+              src="/site-assets/lookup_result_clean.png"
               alt="Pronunciation result"
               fill
               unoptimized
@@ -180,7 +180,7 @@ export default function Home() {
           </div>
           <div className="storyPanel storyPanelRight">
             <Image
-              src="/site-assets/query_home_valid.png"
+              src="/site-assets/listening_detail_clean.png"
               alt="Listening interface"
               fill
               unoptimized
