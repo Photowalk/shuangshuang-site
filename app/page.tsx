@@ -93,11 +93,6 @@ const statCards = [
 ];
 
 export default function Home() {
-  const scrollToFirstSection = () => {
-    const target = document.getElementById("daily");
-    target?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <main className="siteShell">
       <div className="siteBackdrop" />
@@ -141,10 +136,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-            <button type="button" className="scrollButton" onClick={scrollToFirstSection}>
-              向下看
-              <span>Scroll</span>
-            </button>
           </div>
 
           <div className="heroVisual">
@@ -197,13 +188,23 @@ export default function Home() {
               className="storyPanelImage"
             />
           </div>
-          <div className="storyCopy">
-            <p className="storyOverline">A calm learning rhythm</p>
-            <h2 className="storyTitle">每天一个入口，顺手一查，继续往下听。</h2>
-            <p className="storyLead">
-              From a daily word to a spoken result, then into listening with context.
-            </p>
-          </div>
+        </div>
+        <div className="storyCopy">
+          <p className="storyOverline">A calm learning rhythm</p>
+          <h2 className="storyTitle">每天一个入口，顺手一查，继续往下听。</h2>
+          <p className="storyLead">
+            From a daily word to a spoken result, then into listening with context.
+          </p>
+        </div>
+        <div className="theoryBlock">
+          <p className="theoryEyebrow">Stephen Krashen</p>
+          <h3 className="theoryTitle">语言习得的核心，不是记住更多规则，而是持续接触可理解输入。</h3>
+          <p className="theoryBodyCn">
+            Krashen 的核心观点可以概括成一句话：当学习者在低压力状态下，持续接触到略高于自己当前水平、但仍然能够理解的输入时，语言会自然增长。
+          </p>
+          <p className="theoryBodyEn">
+            Language grows through comprehensible input, slightly beyond the learner&apos;s current level, in a low-anxiety state.
+          </p>
         </div>
       </section>
 
