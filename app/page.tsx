@@ -1,7 +1,8 @@
-"use client";
-
 import Image from "next/image";
 import { DeviceFrame } from "@/components/site/DeviceFrame";
+
+const STABLE_MANIFEST_URL = "https://mobile.shuangshuang.de/app/update/android/stable.json";
+const VERSION_PATTERN = /^\d{4}\.\d{2}\.\d{2}\.\d+$/;
 
 const heroCards = [
   {
@@ -87,12 +88,37 @@ const featureCards = [
 ];
 
 const statCards = [
-  { value: "WOTD", captionCn: "每天都有自然入口", captionEn: "A daily starting point" },
-  { value: "UK / US", captionCn: "结果页直接发音", captionEn: "Direct pronunciation playback" },
-  { value: "字幕联动", captionCn: "查词与听力连续衔接", captionEn: "Listening linked to lookup" },
+  { index: "01", value: "WOTD", captionCn: "每天都有自然入口", captionEn: "A daily starting point" },
+  { index: "02", value: "UK / US", captionCn: "结果页直接发音", captionEn: "Direct pronunciation playback" },
+  { index: "03", value: "字幕联动", captionCn: "查词与听力连续衔接", captionEn: "Listening linked to lookup" },
 ];
 
-export default function Home() {
+async function getLatestAndroidVersion() {
+  try {
+    const response = await fetch(STABLE_MANIFEST_URL, {
+      next: { revalidate: 300 },
+    });
+    if (!response.ok) {
+      return null;
+    }
+
+    const payload = (await response.json()) as { version_name?: unknown };
+    const versionName =
+      typeof payload.version_name === "string" && VERSION_PATTERN.test(payload.version_name)
+        ? payload.version_name
+        : null;
+    return versionName;
+  } catch {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const latestAndroidVersion = await getLatestAndroidVersion();
+  const footerMeta = latestAndroidVersion
+    ? `© 2026 ShuangShuang · Android v${latestAndroidVersion}`
+    : "© 2026 ShuangShuang";
+
   return (
     <main className="siteShell">
       <div className="siteBackdrop" />
@@ -130,7 +156,10 @@ export default function Home() {
             <div className="heroStats">
               {statCards.map((card) => (
                 <div key={card.value} className="statCard">
-                  <span className="statValue">{card.value}</span>
+                  <div className="statCardHeader">
+                    <span className="statIndex">{card.index}</span>
+                    <span className="statValue">{card.value}</span>
+                  </div>
                   <p className="statCaptionCn">{card.captionCn}</p>
                   <p className="statCaptionEn">{card.captionEn}</p>
                 </div>
@@ -139,6 +168,7 @@ export default function Home() {
           </div>
 
           <div className="heroVisual">
+            <div className="heroStage" />
             <div className="heroHalo heroHaloPrimary" />
             <div className="heroHalo heroHaloSecondary" />
             {heroCards.map((card) => (
@@ -196,15 +226,18 @@ export default function Home() {
             When curiosity settles into habit, time turns tiny repetitions into real change.
           </p>
         </div>
-        <div className="theoryBlock">
-          <p className="theoryEyebrow">Stephen Krashen</p>
-          <h3 className="theoryTitle">语言习得的核心，不是记住更多规则，而是持续接触可理解输入。</h3>
-          <p className="theoryBodyCn">
-            Krashen 的核心观点可以概括成一句话：当学习者在低压力状态下，持续接触到略高于自己当前水平、但仍然能够理解的输入时，语言会自然增长。
-          </p>
-          <p className="theoryBodyEn">
-            Language grows through comprehensible input, slightly beyond the learner&apos;s current level, in a low-anxiety state.
-          </p>
+        <div className="storyNarrative">
+          <div className="storyDivider" aria-hidden="true" />
+          <div className="theoryBlock">
+            <p className="theoryEyebrow">Stephen Krashen</p>
+            <h3 className="theoryTitle">语言习得的核心，不是记住更多规则，而是持续接触可理解输入。</h3>
+            <p className="theoryBodyCn">
+              Krashen 的核心观点可以概括成一句话：当学习者在低压力状态下，持续接触到略高于自己当前水平、但仍然能够理解的输入时，语言会自然增长。
+            </p>
+            <p className="theoryBodyEn">
+              Language grows through comprehensible input, slightly beyond the learner&apos;s current level, in a low-anxiety state.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -231,7 +264,7 @@ export default function Home() {
               alt={section.title}
               labelCn={section.labelCn}
               labelEn={section.labelEn}
-              priority={index < 2}
+              priority={index < 2 || index === featureCards.length - 1}
               className="featureDevice"
             />
           </div>
@@ -244,7 +277,7 @@ export default function Home() {
         <p className="footerBody">
           Built from the current Android release line. Designed as a product story, not a download funnel.
         </p>
-        <p className="footerMeta">Product page concept · Release line 2026.03.15.2</p>
+        <p className="footerMeta">{footerMeta}</p>
       </footer>
     </main>
   );
